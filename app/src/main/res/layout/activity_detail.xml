@@ -1,6 +1,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -8,59 +9,37 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <!-- Name -->
         <TextView
             android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:textSize="26sp"
             android:textStyle="bold"
-            android:textColor="#222222"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:textColor="#222222" />
 
-        <!-- Specialties -->
+        <!-- This will hold the first part of the description (Specialties) -->
         <TextView
             android:id="@+id/tvSpecialties"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textStyle="italic"
             android:textColor="#007BFF"
-            android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_marginTop="8dp" />
 
-        <!-- Description -->
         <TextView
             android:id="@+id/tvDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:textSize="16sp"
             android:textColor="#555555"
-            android:layout_marginTop="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_marginTop="12dp" />
 
-        <!-- Actions -->
-        <Button
-            android:id="@+id/btnCall"
-            android:text="Call"
-            android:layout_marginTop="25dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <Button
-            android:id="@+id/btnSMS"
-            android:text="SMS"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <Button
-            android:id="@+id/btnEmail"
-            android:text="Email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <Button
-            android:id="@+id/btnMap"
-            android:text="Maps"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+        <!-- Requirements: Call, SMS, Email, Map -->
+        <Button android:id="@+id/btnCall" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Call" android:layout_marginTop="24dp" />
+        <Button android:id="@+id/btnSMS" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="SMS" android:layout_marginTop="8dp" />
+        <Button android:id="@+id/btnEmail" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Email" android:layout_marginTop="8dp" />
+        <Button android:id="@+id/btnMap" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Maps" android:layout_marginTop="8dp" />
 
     </LinearLayout>
 </ScrollView>
