@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -9,18 +8,59 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <!-- 1. The "Detailed View" Requirements -->
-        <TextView android:id="@+id/tvName" android:textSize="26sp" android:textStyle="bold" android:layout_width="match_parent" android:layout_height="wrap_content" />
-        
-        <TextView android:id="@+id/tvSpecialties" android:textSize="18sp" android:textStyle="italic" android:textColor="#007BFF" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="5dp" />
+        <!-- Name -->
+        <TextView
+            android:id="@+id/tvName"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#222222"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
-        <TextView android:id="@+id/tvDescription" android:textSize="16sp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="15dp" />
+        <!-- Specialties -->
+        <TextView
+            android:id="@+id/tvSpecialties"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            android:textColor="#007BFF"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
-        <!-- 2. The "Contact & Location" Requirements -->
-        <Button android:id="@+id/btnCall" android:text="Call" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="25dp"/>
-        <Button android:id="@+id/btnSMS" android:text="SMS" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-        <Button android:id="@+id/btnEmail" android:text="Email" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-        <Button android:id="@+id/btnMap" android:text="Maps" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <!-- Description -->
+        <TextView
+            android:id="@+id/tvDescription"
+            android:textSize="16sp"
+            android:textColor="#555555"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Actions -->
+        <Button
+            android:id="@+id/btnCall"
+            android:text="Call"
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnSMS"
+            android:text="SMS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnEmail"
+            android:text="Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnMap"
+            android:text="Maps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 </ScrollView>
