@@ -1,83 +1,240 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    activity_detail.xml — matches DetailActivity.java exactly
+    IDs used by Java:
+      TextView: tvName, tvSpecialties, tvDescription
+      Button:   btnCall, btnSMS, btnEmail, btnMap
+-->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F7FA"
+    android:background="#F0F4FF"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:textColor="#111"/>
-
-        <TextView
-            android:id="@+id/tvSpecialties"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="#2962FF"
-            android:layout_marginTop="6dp"/>
-
-        <TextView
-            android:id="@+id/tvDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:textColor="#444"
-            android:layout_marginTop="14dp"/>
-
-        <!-- Buttons -->
+        <!-- HERO HEADER -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:orientation="vertical"
-            android:layout_marginTop="24dp">
+            android:gravity="bottom"
+            android:background="#1A2E6E"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="24dp">
 
-            <Button
-                android:id="@+id/btnCall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Call"
-                android:backgroundTint="#2962FF"
-                android:textColor="#FFFFFF"/>
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/umbb_logo"
+                android:scaleType="fitCenter"
+                android:layout_gravity="end"
+                android:layout_marginBottom="10dp"/>
 
-            <Button
-                android:id="@+id/btnSMS"
-                android:layout_width="match_parent"
+            <!-- tvName — set by: tvName.setText(dept.name) -->
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SMS"
-                android:layout_marginTop="8dp"
-                android:backgroundTint="#00C853"
-                android:textColor="#FFFFFF"/>
+                android:text="Department Name"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:maxLines="2"
+                android:ellipsize="end"/>
 
-            <Button
-                android:id="@+id/btnEmail"
-                android:layout_width="match_parent"
+            <!-- tvSpecialties — set by: tvSpecialties.setText("location: " + dept.location) -->
+            <TextView
+                android:id="@+id/tvSpecialties"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Email"
-                android:layout_marginTop="8dp"
-                android:backgroundTint="#FF6D00"
-                android:textColor="#FFFFFF"/>
-
-            <Button
-                android:id="@+id/btnMap"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Maps"
-                android:layout_marginTop="8dp"
-                android:backgroundTint="#AA00FF"
-                android:textColor="#FFFFFF"/>
+                android:text="location: ..."
+                android:textColor="#90CAF9"
+                android:textSize="13sp"
+                android:layout_marginTop="4dp"/>
 
         </LinearLayout>
+
+        <!-- MAIN CARD -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="-18dp"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="#FFFFFF">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Description label -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="About"
+                    android:textColor="#90A4AE"
+                    android:textSize="11sp"
+                    android:textStyle="bold"/>
+
+                <!-- tvDescription — set by: tvDescription.setText(dept.description) -->
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Description goes here."
+                    android:textColor="#263238"
+                    android:textSize="14sp"
+                    android:lineSpacingMultiplier="1.5"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="20dp"/>
+
+                <!-- Divider -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#ECEFF1"
+                    android:layout_marginBottom="20dp"/>
+
+                <!-- Contact label -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contact &amp; Location"
+                    android:textColor="#90A4AE"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- 4 ICON BUTTONS — all using Button so Java's btnCall.setOnClickListener works -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <!-- btnCall — Button btnCall = findViewById(R.id.btnCall) -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <Button
+                            android:id="@+id/btnCall"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:background="#E3F2FD"
+                            android:drawableTop="@android:drawable/ic_menu_call"
+                            android:text=""
+                            android:padding="14dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Call"
+                            android:textColor="#1565C0"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="6dp"/>
+                    </LinearLayout>
+
+                    <!-- btnSMS — Button btnSMS = findViewById(R.id.btnSMS) -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <Button
+                            android:id="@+id/btnSMS"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:background="#E8F5E9"
+                            android:drawableTop="@android:drawable/ic_dialog_email"
+                            android:text=""
+                            android:padding="14dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SMS"
+                            android:textColor="#2E7D32"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="6dp"/>
+                    </LinearLayout>
+
+                    <!-- btnEmail — Button btnEmail = findViewById(R.id.btnEmail) -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <Button
+                            android:id="@+id/btnEmail"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:background="#FFF3E0"
+                            android:drawableTop="@android:drawable/sym_action_email"
+                            android:text=""
+                            android:padding="14dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Email"
+                            android:textColor="#E65100"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="6dp"/>
+                    </LinearLayout>
+
+                    <!-- btnMap — Button btnMap = findViewById(R.id.btnMap) -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <Button
+                            android:id="@+id/btnMap"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:background="#F3E5F5"
+                            android:drawableTop="@android:drawable/ic_menu_mapmode"
+                            android:text=""
+                            android:padding="14dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Maps"
+                            android:textColor="#6A1B9A"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="6dp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 </ScrollView>
